@@ -25,3 +25,17 @@ noteApp.get('/assets/js/index.js', (req, res) => res.sendFile(path.join(__dirnam
 
 // Serves notes.html
 noteApp.get('/notes', (req, res) => res.sendFile(path.join(__dirname, "/public/notes.html")));
+
+
+// Route handling for API requests
+// Serves existing notes from db.json
+noteApp.get('/api/notes', (req, res) => {
+    fs.readFile("./db/db.json", (error, data) => {
+        if (error) {
+            console.error(error);
+        } else {
+            // Sends response without converting to JSON since file format is already JSON
+            return res.send(data);
+        }
+    })
+});
