@@ -39,3 +39,35 @@ noteApp.get('/api/notes', (req, res) => {
         }
     })
 });
+
+// Accepts new note submissions
+noteApp.post('/api/notes', (req, res) => {
+
+    // Pulls existing notes from db.json file
+    fs.readFile("./db/db.json", 'utf8', (error, data) => {
+        if (error) {
+            console.error(error);
+        } else {
+            const currentNotes = JSON.parse(data);
+
+            const newNote = req.body;
+
+            // Assigns id property to newNote object
+            newNote.id = uuid();
+            
+            // Clones array of existing notes
+            const updatedNotes = currentNotes.map(note => note);
+
+            // Adds new note to array to then be written to db.json
+            updatedNotes.push(newNote);
+
+            // Overwrite db.json file with updatedNotes array
+            fs.writeFile("./db/db.json", JSON.stringify(updatedNotes), (err) => err ? console.error(err) : console.log("Note saved"));
+
+            res.json(newNote);
+        }
+    })
+});
+
+
+noteApp.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
