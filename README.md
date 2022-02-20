@@ -9,15 +9,15 @@
 Technologies used
 -----------------
 
-HTML,CSS, JavaScript
+
 
 screenshot
 ----------
 
-![random](https://user-images.githubusercontent.com/94205464/146275481-65f49e85-c15e-4926-95eb-54de0c32ed12.jpeg)
+![note-taker1](https://user-images.githubusercontent.com/94205464/154864358-6320a81e-0732-4b35-a310-0c41fdab4272.png)
 
+![note-taker2](https://user-images.githubusercontent.com/94205464/154864360-de73999a-9d03-417f-9b41-430c5d267dbb.png)
 
-![randompass](https://user-images.githubusercontent.com/94205464/152259467-659387a2-9e75-479d-a6a4-b492a4139372.jpeg)
 
 
 Tasks completed
@@ -36,7 +36,7 @@ Tasks completed
 Links
 ------
 
-Link to the deployed websit
+Link to the Repo
 
 https://github.com/vakrathundaya/note-taker
 
@@ -44,12 +44,3 @@ Link to the Heroku Application
 
 https://note-taker-to-write-save-notes.herokuapp.com/notes
 
-Installation
-------------
-Upload index.html,style.css,script.js to the deployed webserver. 
-
-The website was deployed using GitHub Pages.
-
-Usage
------
-Once deployed the application can be viewed in a traditional desktop web browser. It is optimized for smaller screens.
