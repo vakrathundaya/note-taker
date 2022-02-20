@@ -2,12 +2,7 @@
 
 # Description
 
- Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.This allpication can be viewed on Heroku.
-
-
-
-Technologies used
------------------
+Full-stack application for creating, saving and deleting notes.This application will use an Express.js back end and will save and retrieve note data from a JSON file.This allpication can be viewed on Heroku.
 
 
 
@@ -44,3 +39,6 @@ Link to the Heroku Application
 
 https://note-taker-to-write-save-notes.herokuapp.com/notes
 
+# Installation
+
+The user should clone the repository from GitHub and download Node.js and Express.js.
