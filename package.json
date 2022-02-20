@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/vakrathundaya/note-taker#readme",
   "dependencies": {
-    "express": "^4.17.3"
-  },
-  "devDependencies": {}
+    "express": "^4.17.3",
+    "uuid": "^8.3.2"
+  }
 }

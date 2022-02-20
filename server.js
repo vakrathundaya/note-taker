@@ -3,7 +3,10 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 // Helper method for generating unique ids
-const uuid = require('./helpers/uuid');
+// const uuid = require('./helpers/uuid');
+const { v4: uuidv4 } = require('uuid');
+
+
 
 // Initialize express app
 const noteApp = express();
@@ -53,7 +56,7 @@ noteApp.post('/api/notes', (req, res) => {
             const newNote = req.body;
 
             // Assigns id property to newNote object
-            newNote.id = uuid();
+            newNote.id = uuidv4();;
             
             // Clones array of existing notes
             const updatedNotes = currentNotes.map(note => note);
@@ -68,6 +71,27 @@ noteApp.post('/api/notes', (req, res) => {
         }
     })
 });
+
+noteApp.delete('/api/notes/:id', (req, res) => {
+    // Assigns requested id to variable
+    const deletedNote = req.params.id;
+    
+    // Pulls existing notes from db.json file
+    fs.readFile('./db/db.json', 'utf8', (error, data) => {
+        if (error) {
+            console.error(error);
+        } else {
+            const currentNotes = JSON.parse(data);
+            // Creates new array from existing notes array of all notes EXCEPT the note whose id matches the parameter
+            const updatedNotes = currentNotes.filter(note => note.id !== deletedNote);
+            // Overwites db.json file with array of notes minus deleted note
+            fs.writeFile("./db/db.json", JSON.stringify(updatedNotes), (err) => err ? console.error(err) : console.log("Note deleted"));
+            res.json("Success");
+        }
+    })
+});
+
+
 
 
 noteApp.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
